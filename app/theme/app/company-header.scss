@@ -1,0 +1,72 @@
+.company-header {
+
+	position: relative;
+	height: 180px;
+	width: 100%;
+	background: #FFF;
+	border-bottom: #DEDEDE;
+
+	&.dark-bg {
+		background: #333;
+	}
+
+	.content {
+		height: 100%;
+	}
+
+  .close {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+
+    .button-clear {
+      color: #333;
+    }
+
+    &.light .button-clear {
+      color: #FFF;
+    }
+  }
+
+	.image-reg {
+
+		height: 100%;
+		width: 100%;
+
+		padding: 20px;
+		@include display-flex();
+		@include justify-content(center);
+		@include align-items(center);
+
+		img {
+			max-width: 75%;
+			min-height: 30%;
+			max-height: 45px;
+		}
+
+	}
+
+	.image-bg {
+
+		width: 100%;
+		height: 100%;
+		position: relative;
+
+		.image {
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			opacity: 0.3;
+		}
+
+		.title {
+			padding: 10px;
+			text-transform: uppercase;
+			font-size: 18px;
+			font-weight: bold;
+			@include company-header-center();
+		}
+
+	}
+
+}

@@ -1,0 +1,26 @@
+ion-header {
+  &.bill-modal::after {
+    background-image: none;
+  }
+  &.white-dismiss .bar-button-default {
+    color: #FFF;
+    &:hover {
+      color: #FFF;
+    }
+  }
+}
+
+
+.bill-modal {
+
+  scroll-content {
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+  }
+
+  .toolbar-background {
+    background: transparent !important;
+    border-color: transparent !important;
+  }
+
+}

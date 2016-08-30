@@ -1,0 +1,50 @@
+.bill-detail {
+
+  .detail {
+    border-top: 1px solid $color-gray-border;
+  }
+
+	.payments {
+
+    ion-grid {
+      height: 100%;
+    }
+
+    ion-row[center] {
+      height: 100%;
+    }
+
+		.payment {
+			margin: 10px 10px 0px;
+			background: $color-light-gray;
+			border: 1px solid $color-gray-border;
+			border-radius: 4px;
+			padding: 5px;
+      height: 70px;
+
+      p {
+        margin: 0px;
+      }
+
+			.amount {
+				font-size: 20px;
+			}
+
+			.date {
+				font-size: 12px;
+				line-height: 0px;
+				font-color: $color-gray;
+				opacity: 0.8;
+				padding: 8px 0px;
+			}
+
+			.status {
+				height: 100%;
+				text-align: right;
+			}
+
+		}
+
+	}
+
+}

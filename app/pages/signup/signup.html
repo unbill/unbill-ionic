@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>
+      Signup
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="signupForm" (ngSubmit)="signup(signupForm.value, signupForm.valid)">
+    <ion-list>
+      <ion-item formGroupName="name">
+		    <ion-label floating>First Name</ion-label>
+		    <ion-input type="text" formControlName="first"></ion-input>
+		  </ion-item>
+      <ion-item formGroupName="name">
+		    <ion-label floating>Last Name</ion-label>
+		    <ion-input type="text" formControlName="last"></ion-input>
+		  </ion-item>
+      <ion-item>
+		    <ion-label floating>Email</ion-label>
+		    <ion-input type="email" formControlName="email"></ion-input>
+		  </ion-item>
+      <ion-item>
+		    <ion-label floating>Password</ion-label>
+		    <ion-input type="password" formControlName="password"></ion-input>
+		  </ion-item>
+	   </ion-list>
+     <div padding>
+       <button type="submit" block [disabled]="!signupForm.valid">Signup</button>
+     </div>
+  </form>
+</ion-content>

@@ -1,0 +1,65 @@
+.bill-headline {
+
+	margin: 10px 10px 0px;
+	padding: 20px;
+	background: $color-light-gray;
+	border: 1px solid $color-gray-border;
+	border-radius: 4px;
+	text-align: center;
+
+	h1 {
+		font-size: 18px;
+		margin: 0px;
+		font-weight: 400;
+	}
+
+	p {
+		margin-top: 5px;
+		margin-bottom: 0px;
+	}
+
+	img {
+		margin-top: 15px;
+		max-width: 80px;
+	}
+
+	&.custom {
+		h1, p {
+			color: #FFF;
+		}
+		border: none;
+	}
+
+	&.green-bg {
+		background: #50C966;
+	}
+
+	&.red-bg {
+		background: color($colors, danger);
+	}
+
+	.buttons {
+		margin-top: 15px;
+		.button {
+			margin-right: 10px;
+			text-transform: none;
+			font-size: 16px;
+			min-height: 40px;
+			&:last-child {
+				margin-right: 0px;
+			}
+		}
+	}
+
+	.button-outline {
+		border-color: #333;
+		border-width: 2px;
+		color: #333;
+		line-height: 41px;
+		&.active, &.activated {
+			background: rgba(#333, 0.1);
+			color: #222;
+		}
+	}
+
+}

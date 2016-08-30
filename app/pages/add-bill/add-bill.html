@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>Add Bill</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="add-bill">
+
+  <!-- Search companies by name -->
+  <ion-searchbar
+    (ionInput)="searchCompanies($event)"
+    placeholder="Search by name (e.g. Netflix)">
+  </ion-searchbar>
+
+  <!-- Display list of searched companies -->
+  <div class="companies">
+		<div *ngFor="let company of companies" (click)="authenticate(company)">
+			<company-detail [company]="company"></company-detail>
+		</div>
+	</div>
+
+  <!-- Display list of company categories -->
+	<div class="categories" *ngIf="!companies.length">
+		<div class="category" *ngFor="let category of categories" (click)="goToCategory(category)">
+			<div class="content">
+				<div class="image-reg">
+					<div class="image">
+						<img [src]="category.image.url">
+					</div>
+					<div class="title">{{ category.name }}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</ion-content>

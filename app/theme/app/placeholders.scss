@@ -1,0 +1,31 @@
+// Placeholder styles
+
+.placeholder-icon {
+
+  text-align: center;
+	position: relative;
+	margin-top: 15px;
+
+	ion-icon {
+		font-size: 100px;
+		color: #CCC;
+		padding: 0px !important;
+	}
+
+	p {
+		position: relative;
+		top: -10px;
+		font-size: 12px;
+		color: #888;
+	}
+
+  &.danger {
+    ion-icon {
+      color: color($colors, danger, base);
+    }
+    p {
+      color: color($colors, danger, base);
+    }
+  }
+
+}

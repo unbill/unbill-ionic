@@ -1,0 +1,84 @@
+
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>Bills</ion-title>
+    <ion-buttons end>
+      <button (click)="addBill()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bills">
+
+  <div *ngIf="loaded">
+
+    <!-- Placeholder for when the user has not authenticated any bills -->
+    <div *ngIf="overview.length === 0" class="placeholder-icon" (click)="addBill()">
+      <ion-icon name="paper"></ion-icon>
+      <p>Tap to add your first bill</p>
+    </div>
+
+    <!-- Placeholder for after the user has authenticated some bills but has not added a payment method -->
+    <div *ngIf="overview.length > 0 && payment.status === 'not-linked'" class="placeholder-icon" (click)="addPayment()">
+      <ion-icon name="card"></ion-icon>
+      <p>Tap to add a payment method</p>
+    </div>
+
+    <!-- Call to action for when a user's payment method is declined -->
+    <div *ngIf="payment.status === 'declined'" class="placeholder-icon danger">
+      <ion-icon name="card"></ion-icon>
+      <p>Your payment method was declined.</p>
+      <button danger (click)="addPayment()">Update It</button>
+      <button danger outline (click)="retryPaymentMethod()">Try Again</button>
+    </div>
+
+  </div>
+
+  <!-- List all authenticated bills with their approriate data -->
+  <div *ngIf="overview.length" class="bill-overview">
+    <!-- When the bill's company has an SVG logo, back the background of this item the svg color -->
+    <div
+			class="overview"
+			*ngFor="let detail of overview"
+      [ngStyle]="{ 'background-color': detail.company.logo.svg ? ('#' + detail.company.logo.svg.color) : '#333' }"
+			(click)="viewDetail(detail)">
+      <ion-grid>
+        <ion-row center>
+          <!-- Bill status icon -->
+          <ion-col style="max-width: 55px">
+            <div class="section status-icon">
+  						<img [src]="detail.bill.status.image">
+  					</div>
+          </ion-col>
+          <!-- Bill company's logo -->
+          <ion-col>
+            <div class="section">
+  						<div class="company-brand">
+  							<img *ngIf="detail.company.logo.svg" [src]="detail.company.logo.svg.url">
+  							<span *ngIf="!detail.company.logo.svg" class="name overflow">{{ detail.company.name }}</span>
+  						</div>
+  					</div>
+          </ion-col>
+          <!-- Bill balance / due date information -->
+          <ion-col width-33>
+            <div class="section details">
+  						<div>
+                <!-- Only show the money field if there is a balance or last paid amount -->
+  							<p class="money" *ngIf="detail.bill.balance || detail.bill.lastPaidAmount">
+                  ${{ detail.bill.balance || detail.bill.lastPaidAmount }}
+                </p>
+                <!-- Display the current status of the bill -->
+  							<p class="status-text">
+  								{{ detail.bill.status.text }}
+  							</p>
+  						</div>
+  					</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+		</div>
+  </div>
+
+</ion-content>

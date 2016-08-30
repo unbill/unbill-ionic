@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>{{ category.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="add-bill">
+
+  <!-- Display list of searched companies -->
+  <div class="companies" style="margin-top: 10px">
+		<div *ngFor="let company of companies" (click)="authenticate(company)">
+      <company-detail [company]="company"></company-detail>
+		</div>
+	</div>
+
+</ion-content>

@@ -1,0 +1,82 @@
+<ion-header>
+
+  <ion-toolbar primary no-border-bottom>
+    <ion-buttons left>
+      <button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Add Payment</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar primary no-border-top>
+    <ion-segment light [(ngModel)]="paymentType">
+      <ion-segment-button value="credit">
+        Credit
+      </ion-segment-button>
+      <ion-segment-button value="debit">
+        Debit
+      </ion-segment-button>
+      <ion-segment-button value="echeck">
+        Bank
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <!-- Credit or Debit payment method form -->
+  <form *ngIf="paymentType === 'credit' || paymentType === 'debit'" [formGroup]="cardForm" (ngSubmit)="addPayment(cardForm.value, cardForm.valid)">
+    <ion-list>
+      <ion-item>
+		    <ion-label floating>Card Number</ion-label>
+		    <ion-input type="text" formControlName="cardNumber"></ion-input>
+		  </ion-item>
+      <ion-item>
+        <ion-label floating>Expiration</ion-label>
+        <ion-datetime displayFormat="MM/YYYY" pickerFormat="MM YYYY" formControlName="expDate" min="{{ range.start }}" max="{{ range.end }}"></ion-datetime>
+      </ion-item>
+      <ion-item>
+		    <ion-label floating>CVV</ion-label>
+		    <ion-input type="text" formControlName="cardCode"></ion-input>
+		  </ion-item>
+      <ion-item>
+		    <ion-label floating>Zipcode</ion-label>
+		    <ion-input type="text" formControlName="zipcode"></ion-input>
+		  </ion-item>
+	   </ion-list>
+     <div padding>
+       <button type="submit" block [disabled]="!cardForm.valid">Add Card</button>
+     </div>
+  </form>
+
+  <!-- Bank Account payment form -->
+  <form *ngIf="paymentType === 'echeck'" [formGroup]="bankForm" (ngSubmit)="addPayment(bankForm.value, bankForm.valid)">
+    <div padding-top padding-left padding-right style="padding-bottom: 1px;">
+      <ion-segment formControlName="accountType">
+        <ion-segment-button value="checking">
+          Checking
+        </ion-segment-button>
+        <ion-segment-button value="savings">
+          Savings
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <ion-list>
+      <ion-item style="border-top: 0px">
+		    <ion-label floating>Routing Number</ion-label>
+		    <ion-input type="text" formControlName="routingNumber"></ion-input>
+		  </ion-item>
+      <ion-item>
+		    <ion-label floating>Account Number</ion-label>
+		    <ion-input type="text" formControlName="accountNumber"></ion-input>
+		  </ion-item>
+	   </ion-list>
+     <div padding>
+       <button type="submit" block [disabled]="!bankForm.valid">Add Bank</button>
+     </div>
+  </form>
+
+</ion-content>

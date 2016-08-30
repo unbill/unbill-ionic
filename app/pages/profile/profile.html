@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="profile">
+
+  <div class="user-header">
+    <img src="/img/avatar.png" />
+    <h3>{{ userName }}</h3>
+  </div>
+
+  <ion-list *ngIf="loaded">
+
+    <!-- Current payment method -->
+    <ion-item>
+
+      <!-- If it is not linked, provide option to link payment method -->
+      <span *ngIf="payment.status === 'not-linked'" [attr.danger]="payment.status === 'declined' ? true : null">
+        Payment Method
+      </span>
+
+      <!-- If it is verified or declined -->
+      <span *ngIf="payment.status !== 'not-linked'" [attr.danger]="payment.status === 'declined' ? true : null">
+        <span *ngIf="payment.card"class="capitalize">{{ payment.card.brand }} {{ payment.card.number }}</span>
+        <span *ngIf="payment.bank" class="capitalize">Bank Account {{ payment.bank.accountNumber }}</span>
+      </span>
+
+      <!-- Action to take depending on payment status -->
+      <button clear item-right color="{{ payment.status === 'declined' ? 'danger' : '' }}" (click)="changePayment()">
+        <span *ngIf="payment.status === 'not-linked'">Link</span>
+        <span *ngIf="payment.status === 'verified'">Change</span>
+        <span *ngIf="payment.status === 'declined'">Fix</span>
+      </button>
+      
+    </ion-item>
+
+    <button ion-item (click)="logout()">
+      Logout
+    </button>
+
+  </ion-list>
+
+</ion-content>

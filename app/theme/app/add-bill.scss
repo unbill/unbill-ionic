@@ -1,0 +1,103 @@
+.add-bill {
+
+  .categories, .companies {
+    padding: 0px 8px;
+  }
+
+	.category, .company {
+
+		width: 50%;
+		float: left;
+		padding-bottom: 10px;
+
+		@include touch-effect();
+
+		&:nth-child(odd) {
+			padding-right: 10px;
+		}
+
+		$category-height: 90px;
+
+		.content {
+			height: $category-height;
+			position: relative;
+			border-radius: 4px;
+			border: 1px solid #E7E7E7;
+
+			.image-reg {
+
+				.image {
+					text-align: center;
+					height: $category-height - 25;
+					@include display-flex();
+					@include justify-content(center);
+					@include align-items(center);
+
+					img {
+						max-width: 50%;
+						max-height: 50%;
+					}
+				}
+
+				.title {
+					position: absolute;
+					bottom: 5px;
+					left: 0px;
+					right: 0px;
+					text-align: center;
+					padding: 0px 5px;
+					font-size: 11px;
+					text-transform: uppercase;
+					@include text-overflow();
+				}
+
+			}
+
+		}
+
+	}
+
+	.company .content {
+
+		background: #FFF;
+
+		img {
+			max-width: 70% !important;
+			max-height: 70% !important;
+		}
+
+		.image-bg {
+
+			width: 100%;
+			height: 100%;
+			position: relative;
+
+			.image {
+				width: 100%;
+				height: 100%;
+				background-size: cover;
+				border-radius: 4px;
+				opacity: 0.3;
+			}
+
+			.title {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				padding: 10px;
+				text-align: center;
+				text-transform: uppercase;
+				font-size: 11px;
+				font-weight: bold;
+				@include display-flex();
+				@include justify-content(center);
+				@include align-items(center);
+			}
+
+		}
+
+	}
+
+}
