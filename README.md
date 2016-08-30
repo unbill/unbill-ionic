@@ -4,16 +4,16 @@ This is a full fledge mobile app built with [Ionic 2](http://ionicframework.com/
 
 ## Getting Started
 
-1. Clone the repo
+1. Clone the repo.
 
-    $ git clone git@github.com:unbill/unbill-ionic.git
+		$ git clone git@github.com:unbill/unbill-ionic.git
 
-2. Install the [Ionic CLI](http://ionicframework.com/docs/v2/getting-started/installation/)
+2. Install the [Ionic CLI](http://ionicframework.com/docs/v2/getting-started/installation/).
 
-3. Fire app the web based version
+3. Fire app the web based version.
 
-    $ cd /path/to/repo
-    $ ionic serve
+		$ cd /path/to/repo
+		$ ionic serve
 
 ## What's Included
 
