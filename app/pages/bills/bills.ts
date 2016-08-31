@@ -89,8 +89,7 @@ export class BillsPage {
 			this.handleHold(detail);
 		}
 		else {
-      let detailModal = this.modalCtrl.create(BillDetailPage, { detail: detail });
-      detailModal.present();
+      this.navCtrl.push(BillDetailPage, { detail: detail })
 		}
 
   }

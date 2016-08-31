@@ -27,7 +27,7 @@
     </div>
 
     <!-- Call to action for when a user's payment method is declined -->
-    <div *ngIf="payment.status === 'declined'" class="placeholder-icon danger">
+    <div *ngIf="overview.length > 0 && payment.status === 'declined'" class="placeholder-icon danger">
       <ion-icon name="card"></ion-icon>
       <p>Your payment method was declined.</p>
       <button danger (click)="addPayment()">Update It</button>

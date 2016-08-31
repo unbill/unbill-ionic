@@ -1,6 +1,6 @@
 <ion-header class="bill-modal" [ngClass]="{ 'white-dismiss': company.logo.svg }">
   <ion-navbar>
-    <ion-buttons left>
+    <ion-buttons left *ngIf="showDismiss">
       <button (click)="dismiss()">
         <ion-icon name="close"></ion-icon>
       </button>

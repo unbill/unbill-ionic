@@ -13,6 +13,12 @@
       <ion-label>Autopay</ion-label>
       <ion-toggle primary [(ngModel)]="autopay" (ngModelChange)="toggleAutopay()"></ion-toggle>
     </ion-item>
-    
+
   </ion-list>
+
+  <!-- Remove Bill -->
+  <div padding-left padding-right>
+    <button block danger clear (click)="promptRemove()">Remove</button>
+  </div>
+
 </ion-content>

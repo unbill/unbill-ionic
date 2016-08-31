@@ -1,4 +1,4 @@
-<bill-modal-header [company]="company"></bill-modal-header>
+<bill-modal-header [company]="company" [showDismiss]="true"></bill-modal-header>
 
 <ion-content fullscreen="true" class="bill-modal authenticate">
 
@@ -20,7 +20,7 @@
           [(ngModel)]="credentials[input.name]">
         </ion-input>
 		  </ion-item>
-      
+
     </ion-list>
 
     <!-- Question based MFA -->

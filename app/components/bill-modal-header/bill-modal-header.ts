@@ -10,6 +10,7 @@ export class BillModalHeader {
 
   @Input() company: any;
   @Input() viewSettings: boolean;
+  @Input() showDismiss: boolean;
 
   constructor(
     private viewCtrl: ViewController,

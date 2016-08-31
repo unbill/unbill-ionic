@@ -48,6 +48,12 @@ export class Unbill {
     });
   }
 
+  removeBill(companyId) {
+    return this.request('/bill/remove', {
+      companyId: companyId
+    });
+  }
+
   // User Endpoints
   createUser(user) {
     return this.request('/user/create', user);

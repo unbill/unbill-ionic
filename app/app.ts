@@ -5,7 +5,6 @@ import { SignUpPage } from './pages/signup/signup';
 import { TabsPage } from './pages/tabs/tabs';
 import { Unbill } from './providers/unbill/unbill';
 
-
 @Component({
   template: `
     <ion-nav [root]="rootPage"></ion-nav>
@@ -29,8 +28,6 @@ export class MyApp {
     });
 
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
     });
   }
