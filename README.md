@@ -46,3 +46,7 @@ Below are sample screenshots that show the various views used with the [Unbill A
 ### Profile
 
 ![Profile](screenshots/profile.png)
+
+## Known Issues
+
+* After authenticating on Safari Mobile, the due date will not show up due to a bug with Angular 2 as stated [here](https://github.com/angular/angular/issues/3333).
