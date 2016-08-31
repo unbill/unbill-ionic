@@ -7,7 +7,7 @@
 <ion-content class="profile">
 
   <div class="user-header">
-    <img src="/img/avatar.png" />
+    <img src="img/avatar.png" />
     <h3>{{ userName }}</h3>
   </div>
 
@@ -33,7 +33,7 @@
         <span *ngIf="payment.status === 'verified'">Change</span>
         <span *ngIf="payment.status === 'declined'">Fix</span>
       </button>
-      
+
     </ion-item>
 
     <button ion-item (click)="logout()">
