@@ -10,7 +10,7 @@ This is a full fledge mobile app built with [Ionic 2](http://ionicframework.com/
 
 2. Install the [Ionic CLI](http://ionicframework.com/docs/v2/getting-started/installation/).
 
-3. Fire app the web based version.
+3. Fire up the app in your browser.
 
 		$ cd /path/to/repo
 		$ ionic serve

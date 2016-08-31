@@ -8,7 +8,7 @@ import 'rxjs/Rx';
 export class Unbill {
 
   public host: string = 'https://sandbox.unbill.co/partner/v2';
-  public key: string = 'YOUR_API_KEY';
+  public key: string = 'sandbox-api-key';
   public storage: Storage;
 
   constructor(private http: Http) {
