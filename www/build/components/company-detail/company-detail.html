@@ -1,0 +1,19 @@
+<div class="company">
+  <div class="content">
+
+    <!-- If the company's logo is not best viewed as a background image, just display the logo -->
+    <div *ngIf="!company.logo.background" class="image-reg">
+      <div class="image">
+        <img [src]="company.logo.url">
+      </div>
+      <div class="title">{{ company.name }}</div>
+    </div>
+
+    <!-- If the company's logo is best viewed as a background image, show the image as a full width background image -->
+    <div *ngIf="company.logo.background" class="image-bg">
+      <div class="image" [ngStyle]="{ 'background-image': 'url(\'' + company.logo.url + '\')' }"></div>
+      <div class="title">{{ company.name }}</div>
+    </div>
+    
+  </div>
+</div>

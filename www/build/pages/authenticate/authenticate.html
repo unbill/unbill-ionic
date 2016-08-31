@@ -1,0 +1,84 @@
+<bill-modal-header [company]="company" [showDismiss]="true"></bill-modal-header>
+
+<ion-content fullscreen="true" class="bill-modal authenticate">
+
+  <company-header [company]="company"></company-header>
+
+  <div *ngIf="!bill">
+
+    <!-- Initial credential authentication -->
+    <ion-list *ngIf="!mfaToken">
+
+      <!-- Loop through company's login fields and display input type -->
+      <ion-item *ngFor="let input of company.auth.loginFields">
+		    <ion-label stacked>{{ company.name }} {{ input.label }}</ion-label>
+		    <ion-input
+          type="text"
+          placeholder="{{ input.placeholder}}"
+          autocorrect="off"
+          autocapitalize="none"
+          [(ngModel)]="credentials[input.name]">
+        </ion-input>
+		  </ion-item>
+
+    </ion-list>
+
+    <!-- Question based MFA -->
+    <ion-list *ngIf="mfaToken && mfaType === 'questions'">
+      <ion-item *ngFor="let input of mfaQuestions; let i = index">
+        <ion-label stacked>{{ input.question }}</ion-label>
+        <ion-input
+          type="text"
+          placeholder="Answer"
+          autocorrect="off"
+          autocapitalize="none"
+          [(ngModel)]="mfaResponses[i]">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+
+    <!-- Code based MFA -->
+    <div *ngIf="mfaToken && mfaType === 'list'">
+      <p text-center>How would you like to verify your account?</p>
+      <ion-list>
+        <ion-item *ngFor="let input of mfaCodeList" (click)="sendMfaResponse(input.identifier)">
+          <span style="text-transform: capitalize">{{ input.type }}</span>
+          <ion-note item-right>
+            {{ input.mask }}
+          </ion-note>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <!-- Submit buttons -->
+    <div padding>
+  		<button *ngIf="!mfaToken" block (click)="authenticate()">
+  			Link Account
+  		</button>
+  		<button *ngIf="mfaToken && mfaType === 'questions'" block (click)="sendMfaResponse()">
+  			Answer
+  		</button>
+  	</div>
+
+  </div>
+
+  <!-- Current bill balance after successful authentication -->
+  <div *ngIf="bill && bill.balance">
+  	<div class="bill-balance">
+  		<div class="content">
+  			<div class="balance">
+          <!-- TODO: Use currency filter once angular RC5 is supported -->
+  				<h2>${{ bill.balance }}</h2>
+  				<p>Balance</p>
+  			</div>
+  			<div class="due-date">
+  				<p>Due on {{ bill.dueDate | date:'M/d':'UTC' }}</p>
+  			</div>
+  		</div>
+  	</div>
+  	<div padding>
+  		<button block (click)="onward()">Onward</button>
+  	</div>
+  </div>
+
+</ion-content>

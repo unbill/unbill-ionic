@@ -1,0 +1,50 @@
+<bill-modal-header [company]="detail.company" [viewSettings]="viewSettings"></bill-modal-header>
+
+<ion-content class="bill-detail">
+
+  <company-header [company]="detail.company"></company-header>
+
+  <div class="detail">
+
+    <!-- Bill Headline -->
+    <div *ngIf="detail.bill.headline" class="bill-headline">
+
+      <!-- Headline Title -->
+      <h1>{{ detail.bill.headline.title }}</h1>
+
+      <!-- Optional Headline Subtitle -->
+      <p *ngIf="detail.bill.headline.subtitle">{{ detail.bill.headline.subtitle }}</p>
+
+      <!-- Options Headline Buttons -->
+      <div *ngIf="detail.bill.headline.buttons.length" class="buttons">
+        <button *ngFor="let button of detail.bill.headline.buttons" primary (click)="headlineButton(button)">
+          {{ button.text }}
+        </button>
+      </div>
+      
+    </div>
+
+    <!-- Past Payment -->
+    <div class="payments">
+  		<div class="payment" *ngFor="let payment of detail.payments">
+        <ion-grid>
+          <ion-row center>
+            <ion-col>
+              <div>
+  							<p class="amount">${{ payment.amount }}</p>
+  							<p class="date">{{ payment.paidOn | date:'longDate':'UTC' }}</p>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div class="status">
+    						<span secondary>PAID</span>
+    					</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+  		</div>
+  	</div>
+
+  </div>
+
+</ion-content>

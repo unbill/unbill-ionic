@@ -1,0 +1,24 @@
+<div class="company-header">
+
+	<div class="content nosvg" *ngIf="!company.logo.svg">
+
+		<div *ngIf="company.logo.background" class="image-bg">
+			<div class="image" [ngStyle]="{ 'background-image': 'url(\'' + company.logo.url + '\')' }"></div>
+			<div class="title">{{ company.name }}</div>
+		</div>
+
+		<div *ngIf="!company.logo.background" class="image-reg">
+			<img [src]="company.logo.url" />
+		</div>
+
+	</div>
+
+	<div class="content svg" *ngIf="company.logo.svg">
+
+		<div class="image-reg" [ngStyle]="{ 'background': ('#' + company.logo.svg.color) }">
+			<img class="company-svg" [src]="company.logo.svg.url" />
+		</div>
+
+	</div>
+
+</div>

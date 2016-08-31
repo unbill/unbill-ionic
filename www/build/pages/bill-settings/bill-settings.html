@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title>Payment Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+
+    <!-- Autopay bill setting -->
+    <ion-item>
+      <ion-label>Autopay</ion-label>
+      <ion-toggle primary [(ngModel)]="autopay" (ngModelChange)="toggleAutopay()"></ion-toggle>
+    </ion-item>
+
+  </ion-list>
+
+  <!-- Remove Bill -->
+  <div padding-left padding-right>
+    <button block danger clear (click)="promptRemove()">Remove</button>
+  </div>
+
+</ion-content>
