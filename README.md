@@ -2,6 +2,10 @@
 
 This is a full fledge mobile app built with [Ionic 2](http://ionicframework.com/docs/v2/) that demonstrates how to integrate the [Unbill API](https://unbill.co/docs) into your own app.
 
+## Live Demo
+
+To view a live demo of the app, [tap here](https://unbill.github.io/unbill-ionic/www/) on any mobile browser. Take a look at the [known issues](#known-issues) section for current Angular 2 bugs.
+
 ## Getting Started
 
 1. Clone the repo.
