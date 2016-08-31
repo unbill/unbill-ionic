@@ -94,6 +94,12 @@ export class Unbill {
     return this.request('/payment/retry', {});
   }
 
+  makePayment(companyId) {
+    return this.request('/payment/make', {
+      companyId: companyId
+    });
+  }
+
   request(endpoint, payload) {
 
       let url = `${this.host}${endpoint}`;
