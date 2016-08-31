@@ -12,12 +12,12 @@ This is a full fledge mobile app built with [Ionic 2](http://ionicframework.com/
 
 3. Install dependencies
 
-    $ npm install
+        $ npm install
 
 4. Fire up the app in your browser.
 
-    $ cd /path/to/repo
-		$ ionic serve
+        $ cd /path/to/repo
+        $ ionic serve
 
 ## What's Included
 
